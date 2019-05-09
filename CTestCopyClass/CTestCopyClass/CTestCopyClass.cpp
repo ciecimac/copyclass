@@ -9,33 +9,42 @@ class CTestCopy
 	int x;
 	int y;
 public:
-	CTestCopy()
-	{
-
-	}
-	CTestCopy(int a, int b)
-	{
-		x = a;
-		y = b;
-	}
-	CTestCopy(CTestCopy & om)
-	{
-		x = om.x*2;
-		y = om.y*2;
-		cout << "*******************************" << endl;
-	}
-
-	void setXY(int a, int b)
-	{
-		x = a;
-		y = b;
-	}
-	void disPlay()
-	{
-		cout << "x=" << x << "y=" << y<<endl;
-	}
+	CTestCopy();
+	CTestCopy(int a, int b);
+	CTestCopy(CTestCopy & om);
+	void setXY(int a, int b);
+	void disPlay();
 };
+CTestCopy::CTestCopy()
+{
 
+}
+CTestCopy::CTestCopy(int a, int b)
+{
+	x = a;
+	y = b;
+}
+CTestCopy::CTestCopy(CTestCopy & om)
+{
+	x = om.x * 2;
+	y = om.y * 2;
+	cout << "*******************************" << endl;
+}
+
+void CTestCopy::setXY(int a, int b)
+{
+	x = a;
+	y = b;
+}
+void CTestCopy::disPlay()
+{
+	cout << "x=" << x << "y=" << y << endl;
+}
+void myTest()
+{
+	CTestCopy ocpy(20, 30);
+	ocpy.disPlay();
+}
 int main()
 {
 	CTestCopy ocpy(500,800);
