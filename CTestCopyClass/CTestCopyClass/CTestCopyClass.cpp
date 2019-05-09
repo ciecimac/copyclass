@@ -40,17 +40,15 @@ void CTestCopy::disPlay()
 {
 	cout << "x=" << x << "y=" << y << endl;
 }
-void myTest()
+void myTest(CTestCopy temp)
 {
-	CTestCopy ocpy(20, 30);
-	ocpy.disPlay();
+	
+	temp.disPlay();
 }
 int main()
 {
-	CTestCopy ocpy(500,800);
-	ocpy.disPlay();
-	CTestCopy omyobj(ocpy);
-	omyobj.disPlay();
+	CTestCopy ot(100, 200);
+	myTest(ot);
     return 0;
 }
 
