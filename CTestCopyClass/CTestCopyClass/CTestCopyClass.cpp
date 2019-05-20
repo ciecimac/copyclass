@@ -4,10 +4,13 @@
 #include "stdafx.h"
 #include "iostream"
 using namespace std;
+
 class CTestCopy
 {
+	
 	int *x;
 public:
+	static int flag;
 	CTestCopy();
 	CTestCopy(int a);
 	CTestCopy(CTestCopy & om);
@@ -15,6 +18,7 @@ public:
 	void disPlay();
 	~CTestCopy();
 };
+int  CTestCopy::flag = 0;
 CTestCopy::CTestCopy()
 {
 	x = new int;
@@ -24,7 +28,9 @@ CTestCopy::CTestCopy()
 CTestCopy::~CTestCopy()
 {
 	cout << "析构函数 *x=" << *x << "          x变量的值=" << x << "    x变量的地址=" << &x << endl;
-	delete x;
+	if (flag == 0)
+		delete x;
+	flag++;
 }
 CTestCopy::CTestCopy(int a)
 {
@@ -34,8 +40,8 @@ CTestCopy::CTestCopy(int a)
 }
 CTestCopy::CTestCopy(CTestCopy & om)
 {
-	x = new int;
-	*x = *om.x;
+
+	x = om.x;
 	cout << "复制构造函数 *x=" << *x << "          x变量的值=" << x << "    x变量的地址=" << &x << endl;
 }
 
